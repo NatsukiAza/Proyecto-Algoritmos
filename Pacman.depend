@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1756614909 source:e:\santi\documents\pacman 2\main.c
+	"generador.h"
+	"movimiento.h"
+
+1756612569 source:e:\santi\documents\pacman 2\generador.c
+	"generador.h"
+
+1756614285 e:\santi\documents\pacman 2\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+
+1756615784 source:e:\santi\documents\pacman 2\movimiento.c
+	"movimiento.h"
+
+1756614845 e:\santi\documents\pacman 2\movimiento.h
+	"generador.h"
+	<conio.h>
+
