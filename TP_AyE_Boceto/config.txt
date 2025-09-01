@@ -1,0 +1,6 @@
+filas:10
+columnas:9
+vidas_inicio:3
+maximo_numero_fantasmas:2
+maximo_numero_premios:2
+maximo_vidas_extra:2
