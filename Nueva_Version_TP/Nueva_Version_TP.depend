@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1758679128 source:c:\users\pc\desktop\nueva_version_tp\generador.c
+	"generador.h"
+
+1758679145 c:\users\pc\desktop\nueva_version_tp\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1758672557 source:c:\users\pc\desktop\nueva_version_tp\main.c
+	"generador.h"
+	"movimiento.h"
+
+1758677897 c:\users\pc\desktop\nueva_version_tp\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1758679161 source:c:\users\pc\desktop\nueva_version_tp\movimiento.c
+	"movimiento.h"
+
+1758677154 source:c:\users\pc\desktop\nueva_version_tp\cola.c
+	"cola.h"
+	<string.h>
+
+1758677157 c:\users\pc\desktop\nueva_version_tp\cola.h
+	<stdlib.h>
+
