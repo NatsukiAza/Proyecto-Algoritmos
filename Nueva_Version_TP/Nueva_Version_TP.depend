@@ -29,3 +29,33 @@
 1758677157 c:\users\pc\desktop\nueva_version_tp\cola.h
 	<stdlib.h>
 
+1760302556 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\cola.c
+	"cola.h"
+	<string.h>
+
+1760302556 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\cola.h
+	<stdlib.h>
+
+1760316164 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\generador.c
+	"generador.h"
+
+1760315563 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1760316034 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\main.c
+	"generador.h"
+	"movimiento.h"
+
+1760315527 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1760314303 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\movimiento.c
+	"movimiento.h"
+

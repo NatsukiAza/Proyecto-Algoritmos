@@ -31,9 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="generador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generador.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="movimiento.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="movimiento.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

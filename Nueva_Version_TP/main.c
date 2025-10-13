@@ -30,6 +30,7 @@ void leerDatos(tLaberinto * l){
 
     fclose(arch);
 
+    l->jugador.premios = 0;
     //printf("\n%d  %d %d %d %d %d",l->filas,l->columnas,l->jugador.vidas,l->cantFantasmas,l->maximosPremios,l->maxVidasExtra);
 }
 
@@ -46,14 +47,18 @@ void  inicializarLaberinto(tLaberinto * l){
 
 int main() {
     tLaberinto laberinto;
-
+    srand(time(NULL));
     leerDatos(&laberinto);
 
     inicializarLaberinto(&laberinto);
     //rellenarBordes(&laberinto);
-    seleccionarAccesos(&laberinto);
+
+    seleccionarAccesos(&laberinto); //aca falla a veces
+
     generarCaminoAleatorio(laberinto.lab,laberinto.filas,laberinto.columnas,laberinto.salidaX,laberinto.salidaY, laberinto.entradaX, laberinto.entradaY);
     generarFantasmas(&laberinto);
+    generarVidasExtra(laberinto.lab, laberinto.maxVidasExtra, laberinto.filas, laberinto.columnas);
+    generarPremios(laberinto.lab, laberinto.maximosPremios, laberinto.filas, laberinto.columnas);
     generarJugador(&laberinto);
     imprimirLaberinto(laberinto.lab,laberinto.columnas,laberinto.filas);
 
@@ -68,5 +73,6 @@ int main() {
 
     for(int i=0;i<laberinto.filas;i++) free(laberinto.lab[i]);
     free(laberinto.lab);
+    free(laberinto.fantasmas);
     return 0;
 }

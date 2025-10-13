@@ -19,3 +19,23 @@
 	"generador.h"
 	<conio.h>
 
+1759710836 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\main.c
+	"generador.h"
+	"movimiento.h"
+
+1759705282 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+
+1759707151 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\movimiento.h
+	"generador.h"
+	<conio.h>
+
+1759705282 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\generador.c
+	"generador.h"
+
+1759709686 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\movimiento.c
+	"movimiento.h"
+

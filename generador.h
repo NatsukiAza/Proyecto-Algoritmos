@@ -8,6 +8,7 @@
 #define PARED '#'
 #define CAMINO '.'
 #define FANTASMA 'F'
+#define VIDA 'V'
 
 typedef struct{
     int x;
@@ -21,5 +22,6 @@ void generarCaminoAleatorio(char **lab, int n, int eX, int eY, int sX, int sY);
 void imprimirLaberinto(char **lab, int n);
 void generarFantasmas(char **lab, int n, int eX, int eY, int cantidadFantasmas,Fantasma f[]);
 void moverFantasmas(char ** lab,int n,Fantasma f[],int cantidadFantasmas);
+void generarVidasExtra(char** lab, int n, int cantVidas);
 
 #endif // GENERADOR_H_INCLUDED

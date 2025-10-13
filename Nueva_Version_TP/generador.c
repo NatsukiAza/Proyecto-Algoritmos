@@ -17,85 +17,85 @@ int dy[4] = { 0, 0, -2, 2 };
 //
 //}
 
-void seleccionarAccesos(tLaberinto *l) {
-    srand(time(NULL));
-    int lado = rand() % 4;
-
-    int entradaFila, entradaCol;
-    int salidaFila, salidaCol;
-
-    if(lado%2==0){
-        entradaFila = 0;
-        entradaCol  = rand() % (l->columnas - 2) + 1;
-        salidaFila  = l->filas - 1;
-        salidaCol   = rand() % (l->columnas - 2) + 1;
-    }else{
-        entradaFila = rand() % (l->filas - 2) + 1;
-        entradaCol  = l->columnas - 1;
-        salidaFila  = rand() % (l->filas - 2) + 1;
-        salidaCol   = 0;
-    }
-
-    switch (lado) {
-        case 0: // ARRIBA
-            l->entradaX = entradaFila+1;
-            l->entradaY = entradaCol;
-            l->salidaX  = salidaFila-2;
-            l->salidaY  = salidaCol;
-
-            l->lab[entradaFila][entradaCol] = ENTRADA;
-            l->lab[entradaFila + 1][entradaCol] = CAMINO;
-
-            l->lab[salidaFila][salidaCol] = SALIDA;
-            l->lab[salidaFila - 1][salidaCol] = CAMINO;
-            break;
-
-        case 1: // DERECHA
-            l->entradaX = entradaFila;
-            l->entradaY = entradaCol-1;
-            l->salidaX  = salidaFila;
-            l->salidaY  = salidaCol+1;
-
-
-            l->lab[entradaFila][entradaCol] = ENTRADA;
-            l->lab[entradaFila][entradaCol - 1] = CAMINO;
-
-            l->lab[salidaFila][salidaCol] = SALIDA;
-            l->lab[salidaFila][salidaCol + 1] = CAMINO;
-            break;
-
-        case 2: // ABAJO
-            l->entradaX = entradaFila-1;
-            l->entradaY = entradaCol;
-            l->salidaX  = salidaFila+1;
-            l->salidaY  = salidaCol;
-
-            l->lab[entradaFila][entradaCol] = ENTRADA;
-            l->lab[entradaFila - 1][entradaCol] = CAMINO;
-
-            l->lab[salidaFila][salidaCol] = SALIDA;
-            l->lab[salidaFila + 1][salidaCol] = CAMINO;
-            break;
-
-        case 3: // IZQUIERDA
-            l->entradaX = entradaFila;
-            l->entradaY = entradaCol-1;
-            l->salidaX  = salidaFila;
-            l->salidaY  = salidaCol-2;
-
-            l->lab[entradaFila][entradaCol] = ENTRADA;
-            l->lab[entradaFila][entradaCol + 1] = CAMINO;
-
-            l->lab[salidaFila][salidaCol] = SALIDA;
-            l->lab[salidaFila][salidaCol - 1] = CAMINO;
-            entradaCol++;
-            break;
-    }
-    l->jugador.fil = l->entradaX;
-    l->jugador.col = l->entradaY;
-
-}
-
+//void seleccionarAccesos(tLaberinto *l) {
+//    srand(time(NULL));
+//    int lado = rand() % 4;
+//
+//    int entradaFila, entradaCol;
+//    int salidaFila, salidaCol;
+//
+//    if(lado%2==0){
+//        entradaFila = 0;
+//        entradaCol  = rand() % (l->columnas - 2) + 1;
+//        salidaFila  = l->filas - 1;
+//        salidaCol   = rand() % (l->columnas - 2) + 1;
+//    }else{
+//        entradaFila = rand() % (l->filas - 2) + 1;
+//        entradaCol  = l->columnas - 1;
+//        salidaFila  = rand() % (l->filas - 2) + 1;
+//        salidaCol   = 0;
+//    }
+//
+//    switch (lado) {
+//        case 0: // ARRIBA
+//            l->entradaX = entradaFila+1;
+//            l->entradaY = entradaCol;
+//            l->salidaX  = salidaFila-2;
+//            l->salidaY  = salidaCol;
+//
+//            l->lab[entradaFila][entradaCol] = ENTRADA;
+//            l->lab[entradaFila + 1][entradaCol] = CAMINO;
+//
+//            l->lab[salidaFila][salidaCol] = SALIDA;
+//            l->lab[salidaFila - 1][salidaCol] = CAMINO;
+//            break;
+//
+//        case 1: // DERECHA
+//            l->entradaX = entradaFila;
+//            l->entradaY = entradaCol-1;
+//            l->salidaX  = salidaFila;
+//            l->salidaY  = salidaCol+1;
+//
+//
+//            l->lab[entradaFila][entradaCol] = ENTRADA;
+//            l->lab[entradaFila][entradaCol - 1] = CAMINO;
+//
+//            l->lab[salidaFila][salidaCol] = SALIDA;
+//            l->lab[salidaFila][salidaCol + 1] = CAMINO;
+//            break;
+//
+//        case 2: // ABAJO
+//            l->entradaX = entradaFila-1;
+//            l->entradaY = entradaCol;
+//            l->salidaX  = salidaFila+1;
+//            l->salidaY  = salidaCol;
+//
+//            l->lab[entradaFila][entradaCol] = ENTRADA;
+//            l->lab[entradaFila - 1][entradaCol] = CAMINO;
+//
+//            l->lab[salidaFila][salidaCol] = SALIDA;
+//            l->lab[salidaFila + 1][salidaCol] = CAMINO;
+//            break;
+//
+//        case 3: // IZQUIERDA
+//            l->entradaX = entradaFila;
+//            l->entradaY = entradaCol-1;
+//            l->salidaX  = salidaFila;
+//            l->salidaY  = salidaCol-2;
+//
+//            l->lab[entradaFila][entradaCol] = ENTRADA;
+//            l->lab[entradaFila][entradaCol + 1] = CAMINO;
+//
+//            l->lab[salidaFila][salidaCol] = SALIDA;
+//            l->lab[salidaFila][salidaCol - 1] = CAMINO;
+//            entradaCol++;
+//            break;
+//    }
+//    l->jugador.fil = l->entradaX;
+//    l->jugador.col = l->entradaY;
+//
+//}
+//
 void generarCaminoAleatorio(char **lab, int filas, int columnas, int x, int y, int salidaX, int salidaY) {
     lab[x][y] = CAMINO;
 
@@ -127,8 +127,100 @@ void generarCaminoAleatorio(char **lab, int filas, int columnas, int x, int y, i
         }
     }
 }
+void seleccionarAccesos(tLaberinto *l) {
 
+    int lado = rand() % 4;
 
+    int filas = l->filas;
+    int cols  = l->columnas;
+
+    //pedir tamañp minimo
+    if (filas < 3 || cols < 3) {
+        fprintf(stderr, "Error: el laberinto debe ser al menos 3x3\n");
+        exit(1);
+    }
+
+    int entradaFila, entradaCol;
+    int salidaFila,  salidaCol;
+
+    switch (lado) {
+        case 0: //ARRIBA (entrada arriba, salida abajo)
+            entradaFila = 0;
+            entradaCol  = rand() % (cols - 2) + 1;
+            salidaFila  = filas - 1;
+            salidaCol   = rand() % (cols - 2) + 1;
+
+            l->entradaX = entradaFila + 1;
+            l->entradaY = entradaCol;
+            l->salidaX  = salidaFila - 1;
+            l->salidaY  = salidaCol;
+
+            l->lab[entradaFila][entradaCol] = ENTRADA;
+            l->lab[entradaFila + 1][entradaCol] = CAMINO;
+
+            l->lab[salidaFila][salidaCol] = SALIDA;
+            l->lab[salidaFila - 1][salidaCol] = CAMINO;
+            break;
+
+        case 1: //DERECHA (entrada derecha, salida izquierda)
+            entradaFila = rand() % (filas - 2) + 1;  //
+            entradaCol  = cols - 1;
+            salidaFila  = rand() % (filas - 2) + 1;
+            salidaCol   = 0;
+
+            l->entradaX = entradaFila;
+            l->entradaY = entradaCol - 1;
+            l->salidaX  = salidaFila;
+            l->salidaY  = salidaCol + 1;
+
+            l->lab[entradaFila][entradaCol] = ENTRADA;
+            l->lab[entradaFila][entradaCol - 1] = CAMINO;
+
+            l->lab[salidaFila][salidaCol] = SALIDA;
+            l->lab[salidaFila][salidaCol + 1] = CAMINO;
+            break;
+
+        case 2: //ABAJO (entrada abajo, salida arriba)
+            entradaFila = filas - 1;
+            entradaCol  = rand() % (cols - 2) + 1;
+            salidaFila  = 0;
+            salidaCol   = rand() % (cols - 2) + 1;
+
+            l->entradaX = entradaFila - 1;
+            l->entradaY = entradaCol;
+            l->salidaX  = salidaFila + 1;
+            l->salidaY  = salidaCol;
+
+            l->lab[entradaFila][entradaCol] = ENTRADA;
+            l->lab[entradaFila - 1][entradaCol] = CAMINO;
+
+            l->lab[salidaFila][salidaCol] = SALIDA;
+            l->lab[salidaFila + 1][salidaCol] = CAMINO;
+            break;
+
+        case 3: //IZQUIERDA (entrada izquierda, salida derecha)
+            entradaFila = rand() % (filas - 2) + 1;
+            entradaCol  = 0;
+            salidaFila  = rand() % (filas - 2) + 1;
+            salidaCol   = cols - 1;
+
+            l->entradaX = entradaFila;
+            l->entradaY = entradaCol + 1;
+            l->salidaX  = salidaFila;
+            l->salidaY  = salidaCol - 1;
+
+            l->lab[entradaFila][entradaCol] = ENTRADA;
+            l->lab[entradaFila][entradaCol + 1] = CAMINO;
+
+            l->lab[salidaFila][salidaCol] = SALIDA;
+            l->lab[salidaFila][salidaCol - 1] = CAMINO;
+            break;
+    }
+
+    //posición inicial del jugador
+    l->jugador.fil = l->entradaX;
+    l->jugador.col = l->entradaY;
+}
 
 
 void generarVidas(char ** lab,tFantasma * fantasmas,int n){
@@ -169,11 +261,12 @@ void generarFantasmas(tLaberinto * l) {
     }
 }
 
-int moverFantasmas(char ** lab, tFantasma * f, int cantidadFantasmas, int laberintoFilas, int laberintoCols) {
+int moverFantasmas(char **lab, tFantasma *f, int *cantidadFantasmas, int laberintoFilas, int laberintoCols)
+{
     tCola colaMovimientos;
     crearCola(&colaMovimientos);
 
-    for (int i = 0; i < cantidadFantasmas; i++) {
+    for (int i = 0; i < *cantidadFantasmas; i++) {
         int dire = rand() % 4; // 0:Arriba, 1:Derecha, 2:Abajo, 3:Izquierda
         encolar(&colaMovimientos, &i, sizeof(int));
         encolar(&colaMovimientos, &dire, sizeof(int));
@@ -211,13 +304,16 @@ int moverFantasmas(char ** lab, tFantasma * f, int cantidadFantasmas, int laberi
                 f[fantasmaID].fil = nuevoX;
                 f[fantasmaID].col = nuevoY;
                 lab[nuevoX][nuevoY] = FANTASMA;
-            } else if (lab[nuevoX][nuevoY] == PLAYER) {
+            }
+            else if (lab[nuevoX][nuevoY] == PLAYER) {
+                //borrar del tablero la celda anterior del fantasma
                 lab[nX][nY] = CAMINO;
-                f[fantasmaID].fil = nuevoX;
-                f[fantasmaID].col = nuevoY;
-                lab[nuevoX][nuevoY] = FANTASMA;
+                for (int j = fantasmaID; j < * cantidadFantasmas - 1; j++)
+                    f[j] = f[j + 1];
+                (*cantidadFantasmas)--;
+
                 vaciarCola(&colaMovimientos);
-                return 1; // Retorna 1 si el jugador fue capturado
+                return 1; //jugador capturado
             }
         }
     }
@@ -231,4 +327,36 @@ void generarJugador(tLaberinto * laberinto){
     int fila = laberinto->jugador.fil;
     int col  = laberinto->jugador.col;
     laberinto->lab[fila][col] = PLAYER;
+}
+
+void generarVidasExtra(char** lab, int cantVidas, int f, int c)
+{
+    int x, y;
+
+    while(cantVidas>0)
+    {
+        x = rand()%f;
+        y = rand()%c;
+        if(lab[x][y] == CAMINO)
+        {
+            lab[x][y] = VIDA;
+            cantVidas--;
+        }
+    }
+}
+
+void generarPremios(char** lab, int cantPremios, int f, int c)
+{
+    int x, y;
+
+    while(cantPremios>0)
+    {
+        x = rand()%f;
+        y = rand()%c;
+        if(lab[x][y] == CAMINO)
+        {
+            lab[x][y] = PREMIO;
+            cantPremios--;
+        }
+    }
 }
