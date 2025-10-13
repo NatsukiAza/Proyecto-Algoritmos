@@ -187,3 +187,19 @@ void moverFantasmas(char ** lab,int n,Fantasma f[],int cantidadFantasmas){
         }
     }
 }
+
+void generarVidasExtra(char** lab, int n, int cantVidas)
+{
+    int x, y;
+
+    while(cantVidas>0)
+    {
+        x = rand()%n;
+        y = rand()%n;
+        if(lab[x][y] == CAMINO)
+        {
+            lab[x][y] = VIDA;
+            cantVidas--;
+        }
+    }
+}
