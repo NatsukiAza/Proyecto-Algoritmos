@@ -98,6 +98,8 @@ int main()
         scanf("%s", laberinto.jugador.nombre);
         system("cls");
 
+        iniciarLogMovimientos("movimientos.txt", laberinto.jugador.nombre);
+
         inicializarLaberinto(&laberinto);
         //rellenarBordes(&laberinto);
 

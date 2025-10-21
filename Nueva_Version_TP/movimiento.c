@@ -151,6 +151,7 @@ int terminarJuego(tLaberinto *l) {
 void ingresarMovimiento(tCola *colaJugador, tLaberinto *l) {
     printf("Controles: WASD | Vidas: %d | Premios: %d\n", l->jugador.vidas, l->jugador.premios);
     int mov = getch();
+    guardarMovimiento("movimientos.txt", mov);
     encolar(colaJugador, &mov, sizeof(mov));
 }
 
@@ -165,10 +166,10 @@ int handleMovimiento(tLaberinto *l) {
 
     // decidir delta
     switch (toupper(mov)) {
-        case 'W': movFil = -1; break;
-        case 'S': movFil =  1; break;
-        case 'A': movCol = -1; break;
-        case 'D': movCol =  1; break;
+        case 'W': movFil = -1; l->jugador.cantMov++; break;
+        case 'S': movFil =  1; l->jugador.cantMov++; break;
+        case 'A': movCol = -1; l->jugador.cantMov++; break;
+        case 'D': movCol =  1; l->jugador.cantMov++; break;
         default:
             printf("INPUT INVALIDO\n");
             vaciarCola(&colaJugador);
@@ -227,4 +228,25 @@ void borrarFantasmaEn(tLaberinto *l, int fil, int col) {
             break;
         }
     }
+}
+
+int iniciarLogMovimientos(const char* archi, char nombre[])
+{
+    FILE*fp = fopen(archi, "at");
+    if(!fp)
+        return 1;
+
+    fprintf(fp, "\n\n||||| User: %s |||||\n", nombre);
+    fclose(fp);
+    return TODO_OK;
+}
+
+int guardarMovimiento(const char* archi, int mov)
+{
+    FILE*fp = fopen(archi, "at");
+    if(!fp)
+        return 1;
+    fprintf(fp, "%c", toupper(mov));
+    fclose(fp);
+    return TODO_OK;
 }

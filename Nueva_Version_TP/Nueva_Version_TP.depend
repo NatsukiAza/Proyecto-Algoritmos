@@ -47,7 +47,7 @@
 	<ctype.h>
 	"cola.h"
 
-1761011458 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\main.c
+1761012387 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\main.c
 	"generador.h"
 	"movimiento.h"
 	"menu.h"
@@ -57,10 +57,10 @@
 	"cola.h"
 	<conio.h>
 
-1761005712 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\movimiento.c
+1761013205 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\movimiento.c
 	"movimiento.h"
 
-1761011739 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\tdavectordin.c
+1761013485 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\tdavectordin.c
 	"TDAvectorDin.h"
 	"generador.h"
 
@@ -69,7 +69,7 @@
 	<stdlib.h>
 	<string.h>
 
-1761011882 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\menu.c
+1761013501 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\menu.c
 	"menu.h"
 	"generador.h"
 	"TDAvectorDin.h"

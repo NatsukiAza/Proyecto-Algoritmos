@@ -60,7 +60,7 @@ int actualizarRanking(const char* archi, tJugador jugador, int flagWin, int(*cmp
     tVector ranking;
     FILE*fp = NULL;
 
-    if(!vectorCrear(&ranking, sizeof(tRanking), 10))
+    if(!vectorCrear(&ranking, sizeof(tRanking), 3))
         return SIN_MEM;
 
     if(existeRanking(archi) == 0) //verifico que exista el ranking

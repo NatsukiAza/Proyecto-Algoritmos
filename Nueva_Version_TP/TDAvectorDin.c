@@ -4,14 +4,22 @@
 int vectorInsertarOrdenado(tVector* vec, const void* clave, int(*cmp)(const void*, const void*))
 {
     size_t i = 0;
-    while(i < vec->ce && cmp((vec->info+i*vec->tam), clave)>=0)
+    while(i < vec->ce && cmp((vec->info+i*vec->tam), clave)>0)
     {
         i++;
     }
 
-    memmove(vec->info + (i+1) * vec->tam, vec->info + i * vec->tam, (vec->ce - i) * vec->tam);
-    memcpy(vec->info + i * vec->tam, clave, vec->tam);
-    vec->ce++;
+    if (vec->ce < vec->cap)
+    {
+        memmove(vec->info + (i+1) * vec->tam, vec->info + i * vec->tam, (vec->ce - i) * vec->tam);
+        memcpy(vec->info + i * vec->tam, clave, vec->tam);
+        vec->ce++;
+    }
+    else if (i < vec->cap)
+    {
+        memmove(vec->info + (i + 1) * vec->tam, vec->info + i * vec->tam, (vec->cap - i - 1) * vec->tam);
+        memcpy(vec->info + i * vec->tam, clave, vec->tam);
+    }
 
     return TODO_OK;
 }
