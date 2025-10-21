@@ -18,14 +18,23 @@
 #define GANO 0
 #define PERDIO 1
 #define JUGANDO 2
+#define SIN_MEM 3
+ #define TODO_OK 4
 #define MIN(x,y) ((x)<(y) ? (x) : (y))
 
 typedef struct{
     int premios;
     int vidas;
+    char nombre[20];
+    int cantMov;
     int fil;
     int col;
 }tJugador;
+
+typedef struct{
+    char nombre[20];
+    double puntos;
+}tRanking;
 
 typedef struct{
     int fil;
