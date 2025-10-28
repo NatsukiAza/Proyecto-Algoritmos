@@ -75,7 +75,7 @@ int vectorOrdenarBurbujeo(tVector* vec, int(cmp)(const void *a, const void *b)) 
     return 1;
 }
 
-int actualizarRanking(tVector* vec, const char* nombre, int nuevaPunt)
+int actualizarRankingJugador(tVector* vec, const char* nombre, int nuevaPunt, int(*cmp)(const void*, const void*))
 {
     if (!vec || !vec->info)
         return ERR;
@@ -84,10 +84,17 @@ int actualizarRanking(tVector* vec, const char* nombre, int nuevaPunt)
         tRanking* rankTmp = (tRanking*)(vec->info + i * vec->tam);
         if (strcmp(rankTmp->nombre, nombre) == 0)
          {
-            // si encontro, actualiza
-            rankTmp->puntaje = nuevaPunt;
-            return OK;
+            TRACE("encontre jugador en el rank");
+            // si encontro y la nuevaPunt es mayor a la actual, actualiza
+            if(nuevaPunt > rankTmp->puntaje){
+                rankTmp->puntaje = nuevaPunt;
+                vectorOrdenarBurbujeo(vec, cmp);
+                TRACE("y actualice");
+            }
+            TRACE("no actualice");
+            return OK; //me voy porq ya encontre el user
         }
-        return ERR;
     }
+    TRACE("no encontre jugador en rank");
+    return ERR;
 }

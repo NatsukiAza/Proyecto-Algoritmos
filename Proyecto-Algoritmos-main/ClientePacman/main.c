@@ -100,8 +100,9 @@ int main()
         WSACleanup();
         offline = 1;
     }
+    else
+        printf("Conectado al servidor.\n");
 
-    printf("Conectado al servidor.\n");
 
     // codigo sin server
 
@@ -147,7 +148,11 @@ int main()
         for(int i=0; i<laberinto.filas; i++) free(laberinto.lab[i]);
         free(laberinto.lab);
         free(laberinto.fantasmas);
-    }
 
+    }
+    if (sock != INVALID_SOCKET) {
+        closesocket(sock);
+    }
+    WSACleanup();
     return 0;
 }

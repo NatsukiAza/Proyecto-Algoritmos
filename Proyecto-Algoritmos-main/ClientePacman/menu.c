@@ -17,12 +17,18 @@ int menu(int offline, SOCKET sock)
         else if(opcion == 2)
         {
             if(offline){
-                printf("Juego ejecutado en modo offline, ranking no disponible. \n");
+                system("cls");
+                printf("Juego ejecutado en modo offline, ranking no disponible.");
                 printf("\n\nPresione ENTER para regresar al menu.");
                 getch();
+                system("cls");
             }else{
                 system("cls");
+                printf("[CLIENTE] antes de mensajeServidor\n"); fflush(stdout);
                 mensajeServidor("verranking;", sock);
+                printf("[CLIENTE] despues de mensajeServidor\n"); fflush(stdout);
+                printf("\n\nPresione ENTER para regresar al menu.");
+                getch();
                 system("cls");
             }
 
@@ -53,14 +59,16 @@ int actualizarRanking(tJugador jugador, int flagWin, SOCKET sock)
     char buffer[BUFFER_SIZE];
     int puntos = 0;
 
-    if(flagWin == 1) //si el usuario gano
-        puntos = 50;
-    puntos += jugador.premios * 10;
-    puntos -= jugador.cantMov / 10;
-    if (puntos < 0) puntos = 0;
+    if (sock != INVALID_SOCKET) {
+        if(flagWin == 1) //si el usuario gano
+            puntos = 50;
+        puntos += jugador.premios * 10;
+        puntos -= (jugador.cantMov / 10);
+        if (puntos < 0) puntos = 0;
 
-    sprintf(buffer, "actualizarranking; %s %d", jugador.nombre, puntos);
-    mensajeServidor(buffer, sock);
+        snprintf(buffer, sizeof(buffer), "actualizarranking;%s %d", jugador.nombre, puntos);
+        mensajeServidor(buffer, sock);
+    }
 
     return 0;
 }

@@ -99,10 +99,6 @@ int busquedaRID(const tArbol *arbol, void* param, int nivel, int flag, int (*acc
     return flag;
 }
 
-int cmpJugador(void *jugador1, void *jugador2){
-    return ((tJugador*)jugador1)->nombre - ((tJugador*)jugador2)->nombre;
-}
-
 void esHoja(tArbol* arbol, void* param, int nivel){
     int hojas = *(int*)param;
     if((*arbol)->izq == NULL && (*arbol)->der == NULL){
@@ -161,63 +157,81 @@ void contar(tArbol* arbol, void* param, int nivel){
     (*(int*)param)++;
 }
 
-int vaciarArbol(tArbol* arbol){
-    int elim = 0, nivel = 0;
-    IDR(arbol, &elim, nivel, eliminar);
-    return elim;
-}
+//int vaciarArbol(tArbol* arbol){
+//    int elim = 0, nivel = 0;
+//    IDR(arbol, &elim, nivel, eliminar);
+//    return elim;
+//}
 
-int podarArbolDesde(tArbol* arbol, int nivelMin){
-    int elim = 0, nivel = 0;
-    IDR(arbol, &nivelMin, nivel, eliminarDesde);
-    return OK;
-}
+//int podarArbolDesde(tArbol* arbol, int nivelMin){
+//    int elim = 0, nivel = 0;
+//    IDR(arbol, &nivelMin, nivel, eliminarDesde);
+//    return OK;
+//}
+//
+//int contarHojas(tArbol* arbol){
+//    int hojas = 0, nivel = 0;
+//    RID(arbol, &hojas, nivel, esHoja);
+//    return hojas;
+//}
+//
+//int contarNodos(tArbol* arbol){
+//    int nodos = 0, nivel = 0;
+//    RID(arbol, &nodos, nivel, contar);
+//    return nodos;
+//}
+//
+//int alturaArbol(tArbol* arbol){
+//    int altura = 0, nivel = 0;
+//    RID(arbol, &altura, nivel, contarAltura);
+//    return altura+1;
+//}
+//
+//void verNodoHastaN(tArbol* arbol, int nivelMax){
+//    int nivel = 0;
+//    RID(arbol, &nivelMax, nivel, mostrarNodoHasta);
+//}
+//
+//void verNodoNivel(tArbol* arbol, int nivelParam){
+//    int nivel = 0;
+//    RID(arbol, &nivelParam, nivel, mostrarNodoNivel);
+//}
+//
+//void verNodoDesdeN(tArbol* arbol, int nivelMin){
+//    int nivel = 0;
+//    RID(arbol, &nivelMin, nivel, mostrarNodoDesde);
+//}
+//
+//int esCompleto(tArbol* arbol){
+//    int altura, nodos;
+//    altura = alturaArbol(arbol);
+//    nodos = contarNodos(arbol);
+//    if(nodos+1 == pow(2, altura)){
+//        return OK;
+//    }else{
+//        return ERR;
+//    }
+//}
 
-int contarHojas(tArbol* arbol){
-    int hojas = 0, nivel = 0;
-    RID(arbol, &hojas, nivel, esHoja);
-    return hojas;
-}
-
-int contarNodos(tArbol* arbol){
-    int nodos = 0, nivel = 0;
-    RID(arbol, &nodos, nivel, contar);
-    return nodos;
-}
-
-int alturaArbol(tArbol* arbol){
-    int altura = 0, nivel = 0;
-    RID(arbol, &altura, nivel, contarAltura);
-    return altura+1;
-}
-
-void verNodoHastaN(tArbol* arbol, int nivelMax){
-    int nivel = 0;
-    RID(arbol, &nivelMax, nivel, mostrarNodoHasta);
-}
-
-void verNodoNivel(tArbol* arbol, int nivelParam){
-    int nivel = 0;
-    RID(arbol, &nivelParam, nivel, mostrarNodoNivel);
-}
-
-void verNodoDesdeN(tArbol* arbol, int nivelMin){
-    int nivel = 0;
-    RID(arbol, &nivelMin, nivel, mostrarNodoDesde);
-}
-
-int esCompleto(tArbol* arbol){
-    int altura, nodos;
-    altura = alturaArbol(arbol);
-    nodos = contarNodos(arbol);
-    if(nodos+1 == pow(2, altura)){
-        return OK;
-    }else{
-        return ERR;
+int buscarNodoArbolBinBusq(tArbol* a, const void* elem, int (*cmp)(const void*, const void*))
+{
+    int rc;
+    while(*a && (rc = cmp(elem, (*a)->info)))
+    {
+        if(rc < 0)
+            a = &((*a)->izq);
+        else
+            a = &((*a)->der);
     }
+    if(!*a)
+        return 1;
+    return 0;
 }
 
-int buscarArbol(tArbol* arbol, char nombre[]){
-    int nivel = 0;
-    return busquedaRID(arbol, &nombre, nivel, 1, cmpJugador);
+unsigned cantNodosArbolBin(const tArbol* a)
+{
+    if(!*a)
+        return 0;
+    return cantNodosArbolBin(&((*a)->izq)) +
+        cantNodosArbolBin(&((*a)->der)) + 1;
 }

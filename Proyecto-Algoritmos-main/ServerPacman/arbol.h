@@ -47,5 +47,8 @@ void mostrarNodoHasta(tArbol* arbol, void* param, int nivel);
 void mostrarNodoNivel(tArbol* arbol, void* param, int nivel);
 void mostrarNodoDesde(tArbol* arbol, void* param, int nivel);
 int esCompleto(tArbol* arbol);
-int cmpJugador(void *jugador1, void *jugador2);
+unsigned cantNodosArbolBin(const tArbol* a);
+int buscarNodoArbolBinBusq(tArbol* a, const void* elem, int (*cmp)(const void*, const void*));
+
+int cmpJugador(const void *, const void *);
 #endif // HEADER_H_INCLUDED

@@ -35,3 +35,40 @@
 	"servidor_lib.h"
 	<stdlib.h>
 
+1761613762 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\serverpacman\arbol.c
+	"arbol.h"
+
+1761613794 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\serverpacman\arbol.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1761614912 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\serverpacman\main.c
+	<stdio.h>
+	<stdlib.h>
+	"servidor_lib.h"
+
+1761615018 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\serverpacman\servidor_lib.h
+	<winsock2.h>
+	"arbol.h"
+	"TDAvectorDin.h"
+	<time.h>
+
+1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\serverpacman\tdavectordin.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arbol.h"
+
+1761614959 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\serverpacman\servidor_lib.c
+	"servidor_lib.h"
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+
+1761612017 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\serverpacman\tdavectordin.c
+	"TDAvectorDin.h"
+	"servidor_lib.h"
+	<stdlib.h>
+

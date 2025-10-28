@@ -8,6 +8,7 @@ int main()
     tVector vec;
     crearArbol(&arbol);
     vectorCrear(&vec, sizeof(tRanking), 10);
+
     run_server(&arbol, &vec);
     return 0;
 }

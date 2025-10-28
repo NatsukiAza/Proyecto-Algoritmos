@@ -129,3 +129,54 @@
 	"TDAvectorDin.h"
 	"generador.h"
 
+1761605130 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\cola.c
+	"cola.h"
+	<string.h>
+
+1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\cola.h
+	<stdlib.h>
+
+1761605130 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.c
+	"conexiones.h"
+	<stdio.h>
+	<string.h>
+
+1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.h
+	<winsock2.h>
+
+1761605130 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\generador.c
+	"generador.h"
+
+1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1761620279 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\main.c
+	"generador.h"
+	"movimiento.h"
+	"menu.h"
+	"conexiones.h"
+
+1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<winsock2.h>
+	"generador.h"
+	"conexiones.h"
+
+1761620223 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\menu.c
+	"menu.h"
+
+1761605130 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\movimiento.c
+	"movimiento.h"
+
