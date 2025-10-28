@@ -1,0 +1,182 @@
+# depslib dependency file v1.0
+1758679128 source:c:\users\pc\desktop\nueva_version_tp\generador.c
+	"generador.h"
+
+1758679145 c:\users\pc\desktop\nueva_version_tp\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1758672557 source:c:\users\pc\desktop\nueva_version_tp\main.c
+	"generador.h"
+	"movimiento.h"
+
+1758677897 c:\users\pc\desktop\nueva_version_tp\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1758679161 source:c:\users\pc\desktop\nueva_version_tp\movimiento.c
+	"movimiento.h"
+
+1758677154 source:c:\users\pc\desktop\nueva_version_tp\cola.c
+	"cola.h"
+	<string.h>
+
+1758677157 c:\users\pc\desktop\nueva_version_tp\cola.h
+	<stdlib.h>
+
+1760302556 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\cola.c
+	"cola.h"
+	<string.h>
+
+1760302556 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\cola.h
+	<stdlib.h>
+
+1761005712 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\generador.c
+	"generador.h"
+
+1761010793 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1761012387 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\main.c
+	"generador.h"
+	"movimiento.h"
+	"menu.h"
+
+1761005712 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1761013205 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\movimiento.c
+	"movimiento.h"
+
+1761013485 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\tdavectordin.c
+	"TDAvectorDin.h"
+	"generador.h"
+
+1761007092 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\tdavectordin.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1761013501 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\menu.c
+	"menu.h"
+	"generador.h"
+	"TDAvectorDin.h"
+
+1761011295 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\nueva_version_tp\menu.h
+	<stdio.h>
+	<stdlib.h>
+	"generador.h"
+
+1761087127 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\cola.c
+	"cola.h"
+	<string.h>
+
+1761087127 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\cola.h
+	<stdlib.h>
+
+1761186873 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\generador.c
+	"generador.h"
+
+1761529962 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1761530129 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\main.c
+	"generador.h"
+	"movimiento.h"
+	"menu.h"
+
+1761529887 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1761530151 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<winsock2.h>
+	"generador.h"
+
+1761530023 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\menu.c
+	"menu.h"
+
+1761106091 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\tdavectordin.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1761106609 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\movimiento.c
+	"movimiento.h"
+
+1761087127 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\nueva_version_tp\tdavectordin.c
+	"TDAvectorDin.h"
+	"generador.h"
+
+1761610539 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\cola.c
+	"cola.h"
+	<string.h>
+
+1761610539 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\cola.h
+	<stdlib.h>
+
+1761610539 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.c
+	"conexiones.h"
+	<stdio.h>
+	<string.h>
+
+1761610539 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.h
+	<winsock2.h>
+
+1761610539 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\generador.c
+	"generador.h"
+
+1761610539 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1761610539 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\main.c
+	"generador.h"
+	"movimiento.h"
+	"menu.h"
+	"conexiones.h"
+
+1761610539 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1761610539 c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<winsock2.h>
+	"generador.h"
+	"conexiones.h"
+
+1761627020 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\menu.c
+	"menu.h"
+
+1761610539 source:c:\users\santi\onedrive\documentos\github\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\movimiento.c
+	"movimiento.h"
+
