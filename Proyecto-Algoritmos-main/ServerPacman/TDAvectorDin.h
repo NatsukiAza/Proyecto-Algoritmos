@@ -20,6 +20,6 @@ void vectorDestruir(tVector* vec);
 int cmpRanking(const void *puntaje1, const void *puntaje2);
 int actualizarRanking(tVector* vec, const char* nombre, int nuevaPunt);
 int vectorOrdenarBurbujeo(tVector* vec, int(cmp)(const void *a, const void *b));
-
+int actualizarRankingJugador(tVector* vec, const char* nombre, int nuevaPunt, int(*cmp)(const void*, const void*));
 
 #endif // TDAVECTORDIN_H_INCLUDED

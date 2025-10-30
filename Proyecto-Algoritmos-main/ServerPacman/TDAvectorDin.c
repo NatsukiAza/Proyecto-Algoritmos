@@ -45,12 +45,14 @@ void vectorDestruir(tVector* vec)
     vec->cap = 0;
 }
 
-int cmpRanking(const void *puntaje1, const void *puntaje2){
-    return *((int*)puntaje1) - *((int*)puntaje2);
+int cmpRanking(const void *a, const void *b){
+    tRanking* x = (tRanking*)a;
+    tRanking* y = (tRanking*)b;
+    return y->puntaje - x->puntaje;
 }
 
 int vectorOrdenarBurbujeo(tVector* vec, int(cmp)(const void *a, const void *b)) {
-    if (!vec || !vec->info || vec->tam == 0 || vec->ce < 2) return 1;
+    if (!vec || !vec->info || vec->tam == 0 || vec->ce == 1) return 1;
 
     void *baseTmp = malloc(vec->tam);
     if (!baseTmp) return 0;
@@ -88,7 +90,8 @@ int actualizarRankingJugador(tVector* vec, const char* nombre, int nuevaPunt, in
             // si encontro y la nuevaPunt es mayor a la actual, actualiza
             if(nuevaPunt > rankTmp->puntaje){
                 rankTmp->puntaje = nuevaPunt;
-                vectorOrdenarBurbujeo(vec, cmp);
+                //vectorOrdenarBurbujeo(vec, cmp);
+                qsort(vec->info, vec->ce, vec->tam, cmp);
                 TRACE("y actualice");
             }
             TRACE("no actualice");

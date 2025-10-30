@@ -11,7 +11,7 @@ void rankingServidor(char* text){
     FILE *pArchRanking;
     tRanking jugador;
     int p = 1;
-    //text[0] = '\0';
+    text[0] = '\0';
     pArchRanking = fopen("ranking.dat", "rb");
 
     if(!pArchRanking){
@@ -33,11 +33,11 @@ void actualizarBDD(char datos[], tArbol* arbol, tVector* vec, char text[]){
     tJugador nuevo;
     FILE *pArchInd, *pArchRanking;
 
-    pArchInd = fopen("indice.dat", "r+b");
+    pArchInd = fopen("indice.dat", "a+b");
     if(!pArchInd){
         strcpy(text, "Error. No se pudo conectar con la base de datos. \n");
     }
-    pArchRanking = fopen("ranking.dat", "r+b");
+    pArchRanking = fopen("ranking.dat", "wb");
     if(!pArchRanking){
         strcpy(text, "Error. No se pudo conectar con la base de datos. \n");
     }
@@ -47,27 +47,22 @@ void actualizarBDD(char datos[], tArbol* arbol, tVector* vec, char text[]){
         sscanf(datos+1, "%s %d", nuevo.nombre, &puntos);
     }
 
-
     int aux = buscarNodoArbolBinBusq(arbol, &nuevo, cmpJugador);
 
     if(aux){
         nuevo.indice = cantNodosArbolBin(arbol) + 1;
         insertarArbolRecu(arbol, &nuevo, sizeof(tJugador), cmpJugador);
-        fseek(pArchInd, 0, SEEK_END);
         fwrite(&nuevo, sizeof(tJugador), 1, pArchInd);
     }
-    if(actualizarRankingJugador(vec, nuevo.nombre, puntos)){
+    if(actualizarRankingJugador(vec, nuevo.nombre, puntos, cmpRanking)){
         tRanking rankTmp;
         strcpy(rankTmp.nombre, nuevo.nombre);
         rankTmp.puntaje = puntos;
-        vectorInsertarOrdenado(vec, &rankTmp, cmpRanking);
-        guardarRanking(vec, pArchRanking);
+        vectorInsertarOrdenado(vec, &rankTmp, cmpRanking);  //ya que el vector lo seguire utilizando mientras la instancia del servidor este abierta
     }
-
-
+    guardarRanking(vec, pArchRanking);
 
     strcpy(text, "Puntaje actualizado en la base de datos!");
-    TRACE("llegue hasta aca");
     fclose(pArchInd);
     fclose(pArchRanking);
 }
@@ -169,7 +164,7 @@ int cargarRanking(tVector* vec){
     }
     fread(&jugador, sizeof(tRanking), 1, pArchRanking);
     while(!feof(pArchRanking)){
-        vectorInsertarOrdenado(vec, &jugador.puntaje, cmpRanking);
+        vectorInsertarOrdenado(vec, &jugador, cmpRanking);
         fread(&jugador, sizeof(tRanking), 1, pArchRanking);
     }
     return OK;

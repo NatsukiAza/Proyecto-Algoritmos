@@ -136,12 +136,13 @@
 1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\cola.h
 	<stdlib.h>
 
-1761605130 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.c
+1761783085 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.c
 	"conexiones.h"
+	"menu.h"
 	<stdio.h>
 	<string.h>
 
-1761605130 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.h
+1761782795 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\conexiones.h
 	<winsock2.h>
 
 1761605130 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\generador.c
@@ -174,7 +175,7 @@
 	"generador.h"
 	"conexiones.h"
 
-1761620223 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\menu.c
+1761780179 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\menu.c
 	"menu.h"
 
 1761605130 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\clientepacman\movimiento.c

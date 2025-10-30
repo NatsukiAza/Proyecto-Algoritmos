@@ -5,6 +5,7 @@
 #include "TDAvectorDin.h"
 #include <time.h>
 
+#define BUFFER_SIZE 1024
 
 #define TRACE(...) do { \
     time_t _t=time(NULL); struct tm _tm; localtime_s(&_tm,&_t); \
@@ -28,4 +29,7 @@ void process_request(char *request, char *response, tArbol* arbol, tVector* vec)
 
 // Ejecuta el bucle principal del servidor
 void run_server();
+
+int guardarRanking(tVector* vec, FILE* fp);
+
 #endif // SERVIDOR_LIB_H_INCLUDED

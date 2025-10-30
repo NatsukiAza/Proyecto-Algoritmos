@@ -24,9 +24,7 @@ int menu(int offline, SOCKET sock)
                 system("cls");
             }else{
                 system("cls");
-                printf("[CLIENTE] antes de mensajeServidor\n"); fflush(stdout);
                 mensajeServidor("verranking;", sock);
-                printf("[CLIENTE] despues de mensajeServidor\n"); fflush(stdout);
                 printf("\n\nPresione ENTER para regresar al menu.");
                 getch();
                 system("cls");
