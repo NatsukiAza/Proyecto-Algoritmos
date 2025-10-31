@@ -40,7 +40,6 @@ void leerDatos(tLaberinto * l)
         printf("Error al leer vidas.\n");
         return;
     }
-    printf("vidas:%d", l->jugador.vidas);
 
 
     leidos = fscanf(arch," maximo_numero_fantasmas:%d",&(l->cantFantasmas));
@@ -376,4 +375,13 @@ void generarArchLaberinto(tLaberinto * l){
         fprintf(arch,"\n");
     }
     fclose(arch);
+}
+
+int esBorde(tLaberinto lab, int i, int j)
+{
+    if(i == 0 || i == (lab.filas - 1))
+        return 1;
+    if(j == 0 || j == (lab.columnas - 1))
+        return 1;
+    return 0;
 }

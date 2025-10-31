@@ -50,7 +50,7 @@ int main()
             scanf("%s", laberinto.jugador.nombre);
             system("cls");
 
-            iniciarLogMovimientos("movimientos.txt", laberinto.jugador.nombre);
+            iniciarLogMovimientos("movimientos.txt");
 
             inicializarLaberinto(&laberinto);
             //rellenarBordes(&laberinto);
@@ -78,6 +78,8 @@ int main()
                 getch();
             }
 
+            if(verMovimientosPartida("movimientos.txt"))
+                printf("\nError al mostrar movimientos de partida.");
 
             for(int i=0; i<laberinto.filas; i++) free(laberinto.lab[i]);
             free(laberinto.lab);

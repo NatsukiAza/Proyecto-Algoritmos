@@ -12,9 +12,16 @@ typedef struct{
 }tRanking;
 
 typedef struct{
-    int indice;
+    unsigned indice;
     char nombre[20];
 }tIndice;
+
+typedef struct
+{
+    char nombre[20];
+    int cantMov;
+    int puntos;
+}tJugador;
 
 int cmpRanking(const void *puntaje1, const void *puntaje2);
 int cmpJugador(const void *, const void *);
@@ -24,5 +31,6 @@ int actualizarRankingJugador(tVector* vec, const char* nombre, int nuevaPunt, in
 void rankingServidor(char* text);
 void actualizarBDD(char datos[], tArbol* arbol, tVector* vec, char* text);
 void verJugadores(char* text);
+int crearArchivoJugadores(const char* archi);
 
 #endif // FUNCIONESCLISERV_H_INCLUDED

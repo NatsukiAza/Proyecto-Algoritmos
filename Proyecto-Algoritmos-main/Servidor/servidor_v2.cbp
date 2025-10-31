@@ -42,6 +42,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="arbol.h" />
+		<Unit filename="funcionesCliServ.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funcionesCliServ.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

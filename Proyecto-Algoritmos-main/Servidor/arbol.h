@@ -38,7 +38,7 @@ void mostrarNodoNivel(tArbol* arbol, void* param, int nivel);
 void mostrarNodoDesde(tArbol* arbol, void* param, int nivel);
 int esCompleto(tArbol* arbol);
 unsigned cantNodosArbolBin(const tArbol* a);
-int buscarNodoArbolBinBusq(tArbol* a, const void* elem, int (*cmp)(const void*, const void*));
+tNodo** buscarNodoArbolBinBusq(tArbol* a, const void* elem, int (*cmp)(const void*, const void*));
 
 
 #endif // HEADER_H_INCLUDED

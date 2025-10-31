@@ -1,26 +1,31 @@
 #include "funcionesCliServ.h"
-
+#include "servidor_lib.h"
 
 
 void verJugadores(char* text){
 
-    FILE *pArchIndice;
-    tIndice jugador;
+    FILE *pArch;
+    tJugador jugador;
     int p = 1;
     text[0] = '\0';
-    pArchIndice = fopen("indice.dat", "rb");
+    pArch = fopen("jugadores.dat", "rb");
 
-    if(!pArchIndice){
+    if(!pArch){
         strcpy(text, "Error. No se pudo conectar con la base de datos. \n");
         return;
     }else{
-        fread(&jugador, sizeof(tIndice), 1, pArchIndice);
-        while(!feof(pArchIndice)){
-            sprintf(text + strlen(text), "%-4d%-21s\n", p, jugador.nombre);
-            p++;
-            fread(&jugador, sizeof(tIndice), 1, pArchIndice);
+        size_t leidos = fread(&jugador, sizeof(tJugador), 1, pArch);
+        if(leidos > 0){
+            while(!feof(pArch)){
+                sprintf(text + strlen(text), "%-4d%-21s%-6d%-9d\n", p, jugador.nombre, jugador.puntos, jugador.cantMov);
+                p++;
+                fread(&jugador, sizeof(tJugador), 1, pArch);
+            }
         }
-        fclose(pArchIndice);
+        else
+            strcpy(text, "Error. Base de jugadores vacia. \n");
+
+        fclose(pArch);
     }
 }
 
@@ -46,9 +51,10 @@ void rankingServidor(char* text){
 }
 
 void actualizarBDD(char datos[], tArbol* arbol, tVector* vec, char* text){
-    int puntos = 0;
-    tIndice nuevo;
-    FILE *pArchInd, *pArchRanking;
+
+    tIndice indiceTmp;
+    tJugador jugadorTmp, jugadorAux;
+    FILE *pArchInd, *pArchRanking, *pArchJugador;
     text[0] = '\0';
 
     pArchInd = fopen("indice.dat", "a+b");
@@ -58,31 +64,60 @@ void actualizarBDD(char datos[], tArbol* arbol, tVector* vec, char* text){
     pArchRanking = fopen("ranking.dat", "wb");
     if(!pArchRanking){
         strcpy(text, "Error. No se pudo conectar con la base de datos. \n");
+        fclose(pArchInd);
+        return;
     }
+    pArchJugador = fopen("jugadores.dat", "r+b");
+    if(!pArchJugador){
+        strcpy(text, "Error. No se pudo conectar con la base de datos. \n");
+        fclose(pArchInd);
+        fclose(pArchRanking);
+        return;
+    }
+
     datos = strchr(datos, ';');
     if(datos)
     {
-        sscanf(datos+1, "%s %d", nuevo.nombre, &puntos);
+        sscanf(datos+1, "%s %d %d", jugadorTmp.nombre, &jugadorTmp.puntos, &jugadorTmp.cantMov);
     }
 
-    int aux = buscarNodoArbolBinBusq(arbol, &nuevo, cmpJugador);
+    strcpy(indiceTmp.nombre, jugadorTmp.nombre);
+    tNodo** nodoAux = buscarNodoArbolBinBusq(arbol, &indiceTmp, cmpJugador);
 
-    if(aux){
-        nuevo.indice = cantNodosArbolBin(arbol) + 1;
-        insertarArbolRecu(arbol, &nuevo, sizeof(tIndice), cmpJugador);
-        fwrite(&nuevo, sizeof(tIndice), 1, pArchInd);
+    if(!nodoAux){
+        //inserto en el arbol e indice
+        indiceTmp.indice = cantNodosArbolBin(arbol);
+        insertarArbolRecu(arbol, &indiceTmp, sizeof(tIndice), cmpJugador);
+        fwrite(&indiceTmp, sizeof(tIndice), 1, pArchInd);
+        //inserto en archivo jugadores
+        fseek(pArchJugador, 0, SEEK_END);
+        fwrite(&jugadorTmp, sizeof(tJugador), 1, pArchJugador);
     }
-    if(actualizarRankingJugador(vec, nuevo.nombre, puntos, cmpRanking)){
+    else //en caso de que el jugador ya exista
+    {
+        memcpy(&indiceTmp, (*nodoAux)->info, sizeof(tIndice));
+        TRACE("existe: %s, %d", indiceTmp.nombre, indiceTmp.indice);
+        fseek(pArchJugador, indiceTmp.indice * sizeof(tJugador), SEEK_SET); //me posiciono en el registro del jugador en el archivo
+        fread(&jugadorAux, sizeof(tJugador), 1, pArchJugador);
+        jugadorAux.cantMov += jugadorTmp.cantMov;
+        jugadorAux.puntos += jugadorTmp.puntos;
+        fseek(pArchJugador, -(long)sizeof(tJugador), SEEK_CUR);
+        fwrite(&jugadorAux, sizeof(tJugador), 1, pArchJugador);
+    }
+
+    //trabajo con el ranking
+    if(actualizarRankingJugador(vec, jugadorTmp.nombre, jugadorTmp.puntos, cmpRanking)){
         tRanking rankTmp;
-        strcpy(rankTmp.nombre, nuevo.nombre);
-        rankTmp.puntaje = puntos;
+        strcpy(rankTmp.nombre, jugadorTmp.nombre);
+        rankTmp.puntaje = jugadorTmp.puntos;
         vectorInsertarOrdenado(vec, &rankTmp, cmpRanking);  //ya que el vector lo seguire utilizando mientras la instancia del servidor este abierta
     }
     guardarRanking(vec, pArchRanking);
 
-    strcpy(text, "Puntaje actualizado en la base de datos!");
+    strcpy(text, "Base de datos actualizada.");
     fclose(pArchInd);
     fclose(pArchRanking);
+    fclose(pArchJugador);
 }
 
 int actualizarRankingJugador(tVector* vec, const char* nombre, int nuevaPunt, int(*cmp)(const void*, const void*))
@@ -130,4 +165,13 @@ int cmpJugador(const void* a, const void* b)
     const tIndice* x = (const tIndice*)a;
     const tIndice* y = (const tIndice*)b;
     return strcmp(x->nombre, y->nombre);
+}
+
+int crearArchivoJugadores(const char* archi)
+{
+    FILE* fp = fopen(archi, "a+b");
+    if(!fp)
+        return 1;
+    fclose(fp);
+    return 0;
 }

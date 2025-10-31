@@ -213,7 +213,7 @@ void contar(tArbol* arbol, void* param, int nivel){
 //    }
 //}
 
-int buscarNodoArbolBinBusq(tArbol* a, const void* elem, int (*cmp)(const void*, const void*))
+tNodo** buscarNodoArbolBinBusq(tArbol* a, const void* elem, int (*cmp)(const void*, const void*))
 {
     int rc;
     while(*a && (rc = cmp(elem, (*a)->info)))
@@ -224,8 +224,8 @@ int buscarNodoArbolBinBusq(tArbol* a, const void* elem, int (*cmp)(const void*, 
             a = &((*a)->der);
     }
     if(!*a)
-        return 1;
-    return 0;
+        return NULL;
+    return (tNodo**)a;
 }
 
 unsigned cantNodosArbolBin(const tArbol* a)

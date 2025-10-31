@@ -81,6 +81,7 @@ void process_request(char *request, char *response, tArbol* arbol, tVector* vec)
     {
         actualizarBDD(request, arbol, vec, text);
         snprintf(response, BUFFER_SIZE, "%s", text);
+        TRACE("base actualizada");
     }
     else if (strcmp(operation, "verjugadores") == 0)
     {
@@ -118,6 +119,11 @@ void run_server(tArbol* arbol, tVector* vec)
     if(cargarRanking(vec)){
         printf("Error al abrir archivo ranking. \n");
     }
+
+    if(crearArchivoJugadores("jugadores.dat")){
+        printf("Error al abrir archivo de jugadores. \n");
+    }
+
 
     struct sockaddr_in client_addr;
     int client_addr_size = sizeof(client_addr);

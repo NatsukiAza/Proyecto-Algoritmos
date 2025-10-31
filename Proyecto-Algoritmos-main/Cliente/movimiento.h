@@ -5,13 +5,15 @@
 #include "cola.h"
 #include <conio.h>
 
+#define BUFFSIZE 1024
+
 //int terminarJuego(tLaberinto * l);
 //void ingresarMovimiento(tCola * colaJugador, int entradaFil, int entradaCol, int*, int*);
 //int handleMovimiento(char **lab, int entradaFil, int entradaCol, int*, int*);
 
 int terminarJuego(tLaberinto *l);
 void ingresarMovimiento(tCola *colaJugador, tLaberinto *l);
-int iniciarLogMovimientos(const char* archi, char nombre[]);
+int iniciarLogMovimientos(const char* archi);
 int handleMovimiento(tLaberinto *l);
 void borrarFantasmaEn(tLaberinto *l, int fil, int col);
 

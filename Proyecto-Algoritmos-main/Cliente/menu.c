@@ -33,7 +33,7 @@ int menu(int offline, SOCKET sock)
             if(offline){
                 printf("Juego ejecutado en modo offline, 'Ver jugadores' no disponible.");
             }else{
-                printf("%-4s%-21s\n", "POS", "USER");
+                printf("%-4s%-21s%-6s%-9s\n", "POS", "USER", "PUNT.", "CANT.MOV");
                 mensajeServidor("verjugadores;", sock);
             }
             printf("\n\nPresione ENTER para regresar al menu.");
@@ -73,7 +73,7 @@ int actualizarRanking(tJugador jugador, int flagWin, SOCKET sock)
         puntos -= (jugador.cantMov / 10);
         if (puntos < 0) puntos = 0;
 
-        snprintf(buffer, sizeof(buffer), "actualizarranking;%s %d", jugador.nombre, puntos);
+        snprintf(buffer, sizeof(buffer), "actualizarranking;%s %d %d", jugador.nombre, puntos, jugador.cantMov);
         mensajeServidor(buffer, sock);
     }
 

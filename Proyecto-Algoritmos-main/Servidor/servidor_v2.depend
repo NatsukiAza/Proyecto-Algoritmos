@@ -109,40 +109,53 @@
 	"servidor_lib.h"
 	<stdlib.h>
 
-1761613762 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.c
+1761877823 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.c
 	"arbol.h"
 
-1761867945 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.h
+1761878699 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<math.h>
 
-1761614912 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\main.c
+1761872082 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\main.c
 	<stdio.h>
 	<stdlib.h>
 	"servidor_lib.h"
+	"funcionesCliServ.h"
 
-1761869211 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\servidor_lib.h
+1761871842 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\servidor_lib.h
 	<winsock2.h>
 	"arbol.h"
 	"TDAvectorDin.h"
 	<time.h>
 
-1761784711 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\tdavectordin.h
+1761872226 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\tdavectordin.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"arbol.h"
 
-1761868727 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\servidor_lib.c
-	"servidor_lib.h"
+1761881706 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\servidor_lib.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
+	"servidor_lib.h"
+	"funcionesCliServ.h"
 
-1761869336 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\tdavectordin.c
+1761872226 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\tdavectordin.c
+	<stdlib.h>
 	"TDAvectorDin.h"
 	"servidor_lib.h"
+	"funcionesCliServ.h"
+
+1761881773 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\funcionescliserv.h
+	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	"TDAvectorDin.h"
+
+1761883545 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\funcionescliserv.c
+	"funcionesCliServ.h"
+	"servidor_lib.h"
 
