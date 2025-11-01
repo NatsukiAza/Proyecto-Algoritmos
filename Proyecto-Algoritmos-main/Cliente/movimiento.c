@@ -152,7 +152,7 @@ int verMovimientosPartida(const char* archi)
         return 1;
 
     char buffer[BUFFSIZE];
-    fgets(&buffer, BUFFSIZE, fp);
+    fgets(buffer, BUFFSIZE, fp);
     printf("\n\nTus movimientos fueron:\n%s", buffer);
     fclose(fp);
     return 0;

@@ -58,6 +58,8 @@ int main()
             seleccionarAccesos(&laberinto); //aca falla a veces
 
             generarCaminoAleatorio(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.entradaX, laberinto.entradaY, 0, 0);
+            despejarSalida(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.salidaX, laberinto.salidaY);
+
             generarFantasmas(&laberinto);
             generarVidasExtra(laberinto.lab, laberinto.maxVidasExtra, laberinto.filas, laberinto.columnas);
             generarPremios(laberinto.lab, laberinto.maximosPremios, laberinto.filas, laberinto.columnas);

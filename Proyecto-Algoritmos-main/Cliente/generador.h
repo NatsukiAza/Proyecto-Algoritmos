@@ -78,5 +78,7 @@ void generarVidas(char ** lab,tFantasma * fantasmas,int n);
 int moverFantasmas(char ** lab, tFantasma * f, int *cantidadFantasmas, int laberintoFilas, int laberintoCols);
 void generarVidasExtra(char** lab, int cantVidas, int f, int c);
 void generarPremios(char** lab, int cantPremios, int f, int c);
+int despejarSalida(char **lab, int filas, int columnas, int salidaX, int salidaY);
+int esBorde(int filas, int columnas, int i, int j);
 
 #endif // GENERADOR_H_INCLUDED

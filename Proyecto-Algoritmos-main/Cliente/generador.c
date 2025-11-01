@@ -122,7 +122,7 @@ void generarCaminoAleatorio(char **lab, int filas, int columnas, int entradaX, i
             if (lab[nx][ny] == PARED){
                 lab[(entradaX + nx) / 2][(entradaY + ny)/2] = CAMINO;
                 lab[nx][ny] = CAMINO;
-                imprimirLaberinto(lab, columnas, filas);
+//                imprimirLaberinto(lab, columnas, filas);
                 generarCaminoAleatorio(lab, filas, columnas, nx, ny, 1, 1);
             }
         }
@@ -377,11 +377,34 @@ void generarArchLaberinto(tLaberinto * l){
     fclose(arch);
 }
 
-int esBorde(tLaberinto lab, int i, int j)
+int esBorde(int filas, int columnas, int i, int j)
 {
-    if(i == 0 || i == (lab.filas - 1))
+    if(i == 0 || i == (filas - 1))
         return 1;
-    if(j == 0 || j == (lab.columnas - 1))
+    if(j == 0 || j == (columnas - 1))
         return 1;
+    return 0; //no es borde
+}
+
+int despejarSalida(char **lab, int filas, int columnas, int salidaX, int salidaY)
+{
+    int i, j;
+    for(i = -1; i<2; i++)
+    {
+        for(j = -1; j<2; j++)
+        {
+            int x = salidaX + i;
+            int y = salidaY + j;
+            if(x > -1 && y > -1) //chequeo que este dentro de limites del laberinto
+            {
+                if(!esBorde(filas, columnas, x, y) && (x != salidaX || y != salidaY)) //chequeo que no sea borde del laberinto y que no sea la salida
+                {
+                    lab[x][y] = CAMINO;
+                }
+            }
+        }
+    }
     return 0;
 }
+
+
