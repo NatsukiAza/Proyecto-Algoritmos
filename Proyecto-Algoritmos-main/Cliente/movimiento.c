@@ -1,6 +1,6 @@
 #include"movimiento.h"
 
-static void respawnJugador(tLaberinto *l) {
+void respawnJugador(tLaberinto *l) {
     // limpiar donde estaba el jugador (si sigue el PLAYER ahí)
     if (l->lab[l->jugador.fil][l->jugador.col] == PLAYER)
         l->lab[l->jugador.fil][l->jugador.col] = CAMINO;
@@ -12,19 +12,20 @@ static void respawnJugador(tLaberinto *l) {
 }
 
 int terminarJuego(tLaberinto *l) {
-    int salidaFil = l->salidaY;
-    int salidaCol = l->salidaX;
-    int estado;
+    int salidaFil = l->salidaX;
+    int salidaCol = l->salidaY;
+    int estado = -1;
 
     while (l->lab[salidaFil][salidaCol] != PLAYER) {
         estado = handleMovimiento(l);
 
         if (estado == PERDIO) {
             l->jugador.vidas--;
-            if (l->jugador.vidas <= 0)
+            if (l->jugador.vidas <= 0){
                 return PERDIO;
+            }
             respawnJugador(l);
-        } else if (estado == GANO) {
+        }else if (estado == GANO) {
             return GANO;
         }
 
@@ -32,15 +33,18 @@ int terminarJuego(tLaberinto *l) {
         int atrapado = moverFantasmas(l->lab, l->fantasmas, &l->cantFantasmas, l->filas, l->columnas);
         if (atrapado) {
             l->jugador.vidas--;
-            if (l->jugador.vidas <= 0)
+            if (l->jugador.vidas <= 0) {
+                printf("perdiste por fantasma (post-mov)\n"); getch();
                 return PERDIO;
+            }
+            printf("te piso un fantasma, respawn\n"); getch();
             respawnJugador(l);
         }
 
         system("cls");
         imprimirLaberinto(l->lab, l->columnas, l->filas);
     }
-    return 1;
+    return estado;
 }
 
 int guardarMovimiento(const char* archi, int mov)
@@ -50,7 +54,7 @@ int guardarMovimiento(const char* archi, int mov)
         return 1;
     fprintf(fp, "%c", toupper(mov));
     fclose(fp);
-    return TODO_OK;
+    return 0;
 }
 
 void ingresarMovimiento(tCola *colaJugador, tLaberinto *l) {
@@ -142,7 +146,7 @@ int iniciarLogMovimientos(const char* archi)
         return 1;
 
     fclose(fp);
-    return TODO_OK;
+    return 0;
 }
 
 int verMovimientosPartida(const char* archi)

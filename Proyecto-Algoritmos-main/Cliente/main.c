@@ -58,6 +58,8 @@ int main()
             seleccionarAccesos(&laberinto); //aca falla a veces
 
             generarCaminoAleatorio(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.entradaX, laberinto.entradaY, 0, 0);
+//            generarLaberintoMasAbierto(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.entradaX, laberinto.entradaY, 40);
+//            laberinto.lab[laberinto.salidaX][laberinto.salidaY] = SALIDA;
             despejarSalida(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.salidaX, laberinto.salidaY);
 
             generarFantasmas(&laberinto);
@@ -67,7 +69,7 @@ int main()
             generarArchLaberinto(&laberinto);
             imprimirLaberinto(laberinto.lab,laberinto.columnas,laberinto.filas);
 
-            if(terminarJuego(&laberinto)==PERDIO)
+            if(terminarJuego(&laberinto) == PERDIO)
             {
                 printf("PERDISTE MALETA!!!\n");
                 actualizarRanking(laberinto.jugador, 0, sock);

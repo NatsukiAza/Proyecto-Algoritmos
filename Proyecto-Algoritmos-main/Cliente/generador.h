@@ -19,7 +19,6 @@
 #define PERDIO 1
 #define JUGANDO 2
 #define SIN_MEM 3
-#define TODO_OK 0
 #define MIN(x,y) ((x)<(y) ? (x) : (y))
 
 typedef struct{

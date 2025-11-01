@@ -89,6 +89,29 @@ void  inicializarLaberinto(tLaberinto * l)
     }
 }
 
+// prob en 0..100 (porcentaje). Ej: 25 = abre ~25% de paredes internas elegibles.
+void abrirBrechas(char **lab, int filas, int columnas, int prob)
+{
+    // Recorremos solo paredes internas que separan dos celdas CAMINO.
+    for (int i = 1; i < filas - 1; ++i) {
+        for (int j = 1; j < columnas - 1; ++j) {
+            if (lab[i][j] != PARED) continue;
+
+            // pared vertical entre dos celdas camino (arriba/abajo)
+            int puedeVertical = (i % 2 == 0) && (j % 2 == 1) &&
+                                lab[i - 1][j] == CAMINO && lab[i + 1][j] == CAMINO;
+
+            // pared horizontal entre dos celdas camino (izq/der)
+            int puedeHorizontal = (i % 2 == 1) && (j % 2 == 0) &&
+                                  lab[i][j - 1] == CAMINO && lab[i][j + 1] == CAMINO;
+
+            if ((puedeVertical || puedeHorizontal) && (rand() % 100) < prob) {
+                lab[i][j] = CAMINO;
+            }
+        }
+    }
+}
+
 void generarCaminoAleatorio(char **lab, int filas, int columnas, int entradaX, int entradaY, int flag1, int flag2) {
     lab[entradaX][entradaY] = CAMINO;
 
@@ -122,11 +145,11 @@ void generarCaminoAleatorio(char **lab, int filas, int columnas, int entradaX, i
             if (lab[nx][ny] == PARED){
                 lab[(entradaX + nx) / 2][(entradaY + ny)/2] = CAMINO;
                 lab[nx][ny] = CAMINO;
-//                imprimirLaberinto(lab, columnas, filas);
                 generarCaminoAleatorio(lab, filas, columnas, nx, ny, 1, 1);
             }
         }
     }
+    abrirBrechas(lab, filas, columnas, 2);
 }
 void seleccionarAccesos(tLaberinto *l) {
 
@@ -406,5 +429,3 @@ int despejarSalida(char **lab, int filas, int columnas, int salidaX, int salidaY
     }
     return 0;
 }
-
-
