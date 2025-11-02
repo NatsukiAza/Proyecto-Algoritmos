@@ -12,8 +12,8 @@ typedef struct{
 }tRanking;
 
 typedef struct{
-    unsigned indice;
     char nombre[20];
+    int indice;
 }tIndice;
 
 typedef struct

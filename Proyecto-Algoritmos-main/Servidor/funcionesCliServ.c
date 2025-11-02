@@ -96,7 +96,6 @@ void actualizarBDD(char datos[], tArbol* arbol, tVector* vec, char* text){
     else //en caso de que el jugador ya exista
     {
         memcpy(&indiceTmp, (*nodoAux)->info, sizeof(tIndice));
-        TRACE("existe: %s, %d", indiceTmp.nombre, indiceTmp.indice);
         fseek(pArchJugador, indiceTmp.indice * sizeof(tJugador), SEEK_SET); //me posiciono en el registro del jugador en el archivo
         fread(&jugadorAux, sizeof(tJugador), 1, pArchJugador);
         jugadorAux.cantMov += jugadorTmp.cantMov;

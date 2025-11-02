@@ -6,19 +6,55 @@
 
 // Funciones auxiliares
 
-int cargarArbol(tArbol* arbol){
-    FILE *pArchInd = fopen("indice.dat", "rb");
-    tIndice jugador;
-    if(!pArchInd){
-        return ERR_ARCH;
-    }
-    fread(&jugador, sizeof(tIndice), 1, pArchInd);
-    while(!feof(pArchInd)){
-        insertarArbolRecu(arbol, &jugador, sizeof(tIndice), cmpJugador);
-        fread(&jugador, sizeof(tIndice), 1, pArchInd);
-    }
-    return OK;
+unsigned leerIndice(void **info, void *source, unsigned pos, void *params)
+{
+    FILE *fp = (FILE*)source;
+    tIndice idx;
+
+    //me posiciono en el registro del archivo que tengo que leer (m)
+    fseek(fp, pos * sizeof(tIndice), SEEK_SET);
+    fread(&idx, sizeof(tIndice), 1, fp);
+
+    //reservo el espacio y copio info
+    *info = malloc(sizeof(tIndice));
+    if (!*info)
+        return 0;
+
+    memcpy(*info, &idx, sizeof(tIndice));
+
+    return sizeof(tIndice);
 }
+
+int generarArbolBinBusqBalanceado(tArbol* a)
+{
+    FILE* fp = fopen("indice.dat", "rb");
+    if(!fp)
+        return 1;
+
+    fseek(fp, 0, SEEK_END);
+    long n = ftell(fp) / sizeof(tIndice);
+    rewind(fp);
+
+    cargarDesdeDatosOrdenadosRec(a, fp, leerIndice, 0, n - 1,  NULL);
+
+    fclose(fp);
+    return 0;
+}
+
+////carga arbol inicial desbalanceado
+//int cargarArbol(tArbol* arbol){
+//    FILE *pArchInd = fopen("indice.dat", "rb");
+//    tIndice jugador;
+//    if(!pArchInd){
+//        return ERR_ARCH;
+//    }
+//    fread(&jugador, sizeof(tIndice), 1, pArchInd);
+//    while(!feof(pArchInd)){
+//        insertarArbolRecu(arbol, &jugador, sizeof(tIndice), cmpJugador);
+//        fread(&jugador, sizeof(tIndice), 1, pArchInd);
+//    }
+//    return OK;
+//}
 
 int cargarRanking(tVector* vec){
     FILE *pArchRanking = fopen("ranking.dat", "rb");
@@ -112,7 +148,7 @@ void run_server(tArbol* arbol, tVector* vec)
 
     printf("Servidor escuchando en puerto %d...\n", PORT);
 
-    if(cargarArbol(arbol)){
+    if(generarArbolBinBusqBalanceado(arbol)){
         printf("Error al abrir archivo indice. \n");
     }
 

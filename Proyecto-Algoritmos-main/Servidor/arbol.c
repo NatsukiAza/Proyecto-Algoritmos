@@ -235,3 +235,25 @@ unsigned cantNodosArbolBin(const tArbol* a)
     return cantNodosArbolBin(&((*a)->izq)) +
         cantNodosArbolBin(&((*a)->der)) + 1;
 }
+
+int cargarDesdeDatosOrdenadosRec(tArbol *p, void *source, unsigned (*leer)(void **, void *, unsigned, void *params), int li, int ls, void *params)
+{
+    int m = (li + ls) / 2, r;
+
+    if (li > ls)
+        return 0;
+
+    *p = (tNodo*)malloc(sizeof(tNodo));
+    if (!*p || !((*p)->tamInfo = leer(&(*p)->info, source, (unsigned)m, params)))
+    {
+        free(*p);
+        return 1;
+    }
+
+    (*p)->izq = (*p)->der = NULL;
+
+    if ((r = cargarDesdeDatosOrdenadosRec(&(*p)->izq, source, leer, li, m - 1, params)) != 0)
+        return r;
+
+    return cargarDesdeDatosOrdenadosRec(&(*p)->der, source, leer, m + 1, ls, params);
+}
