@@ -71,4 +71,3 @@ int vectorOrdenarBurbujeo(tVector* vec, int(cmp)(const void *a, const void *b)) 
     free(baseTmp);
     return 1;
 }
-

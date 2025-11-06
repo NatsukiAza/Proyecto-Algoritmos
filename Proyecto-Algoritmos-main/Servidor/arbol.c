@@ -157,11 +157,15 @@ void contar(tArbol* arbol, void* param, int nivel){
     (*(int*)param)++;
 }
 
-//int vaciarArbol(tArbol* arbol){
-//    int elim = 0, nivel = 0;
-//    IDR(arbol, &elim, nivel, eliminar);
-//    return elim;
-//}
+void vaciarArbol(tArbol* a){
+    if(!*a)
+        return;
+    vaciarArbol(&(*a)->izq);
+    vaciarArbol(&(*a)->der);
+    free((*a)->info);
+    free(*a);
+    *a = NULL;
+}
 
 //int podarArbolDesde(tArbol* arbol, int nivelMin){
 //    int elim = 0, nivel = 0;

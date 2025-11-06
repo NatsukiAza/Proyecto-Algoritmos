@@ -1,7 +1,7 @@
 #include"movimiento.h"
 
 void respawnJugador(tLaberinto *l) {
-    // limpiar donde estaba el jugador (si sigue el PLAYER ahí)
+    // limpiar donde estaba el jugador (si sigue ahí)
     if (l->lab[l->jugador.fil][l->jugador.col] == PLAYER)
         l->lab[l->jugador.fil][l->jugador.col] = CAMINO;
 
@@ -15,9 +15,10 @@ int terminarJuego(tLaberinto *l) {
     int salidaFil = l->salidaX;
     int salidaCol = l->salidaY;
     int estado = -1;
+    int contCheat = 0;
 
     while (l->lab[salidaFil][salidaCol] != PLAYER) {
-        estado = handleMovimiento(l);
+        estado = handleMovimiento(l, &contCheat); //llamo a captar movimiento
 
         if (estado == PERDIO) {
             l->jugador.vidas--;
@@ -29,15 +30,15 @@ int terminarJuego(tLaberinto *l) {
             return GANO;
         }
 
-        // mover fantasmas y chequear si alguno te pisa
+        //mover fantasmas y chequear si alguno te atrapa
         int atrapado = moverFantasmas(l->lab, l->fantasmas, &l->cantFantasmas, l->filas, l->columnas);
         if (atrapado) {
             l->jugador.vidas--;
             if (l->jugador.vidas <= 0) {
-                printf("perdiste por fantasma (post-mov)\n"); getch();
+//                printf("perdiste por fantasma (post-mov)\n"); getch();
                 return PERDIO;
             }
-            printf("te piso un fantasma, respawn\n"); getch();
+//            printf("te piso un fantasma, respawn\n"); getch();
             respawnJugador(l);
         }
 
@@ -64,7 +65,7 @@ void ingresarMovimiento(tCola *colaJugador, tLaberinto *l) {
     encolar(colaJugador, &mov, sizeof(mov));
 }
 
-int handleMovimiento(tLaberinto *l) {
+int handleMovimiento(tLaberinto *l, int* contCheat) {
     int mov;
     int movFil = 0, movCol = 0;
 
@@ -79,10 +80,21 @@ int handleMovimiento(tLaberinto *l) {
         case 'S': movFil =  1; l->jugador.cantMov++; break;
         case 'A': movCol = -1; l->jugador.cantMov++; break;
         case 'D': movCol =  1; l->jugador.cantMov++; break;
+        case 'N': (*contCheat)++; break;
+        case 'B':
         default:
             printf("INPUT INVALIDO\n");
             vaciarCola(&colaJugador);
             return JUGANDO;
+    }
+
+    if(*contCheat == 3){ //en caso de activar el "cheat"
+        l->lab[l->jugador.fil][l->jugador.col] = CAMINO;
+        l->jugador.fil = l->salidaX;
+        l->jugador.col = l->salidaY;
+        l->lab[l->jugador.fil][l->jugador.col] = PLAYER;
+        vaciarCola(&colaJugador);
+        return JUGANDO;
     }
 
     int nextFil = l->jugador.fil + movFil;
@@ -102,7 +114,7 @@ int handleMovimiento(tLaberinto *l) {
             l->lab[nextFil][nextCol] = CAMINO;
             break;
         case FANTASMA:
-            borrarFantasmaEn(l, nextFil, nextCol);
+            borrarFantasma(l, nextFil, nextCol);
             vaciarCola(&colaJugador);
             return PERDIO;
         case SALIDA:
@@ -113,7 +125,7 @@ int handleMovimiento(tLaberinto *l) {
             vaciarCola(&colaJugador);
             return JUGANDO;
     }
-
+    //rescribo el lab con las nuevas celdas
     l->lab[l->jugador.fil][l->jugador.col] = CAMINO;
     l->jugador.fil = nextFil;
     l->jugador.col = nextCol;
@@ -123,7 +135,7 @@ int handleMovimiento(tLaberinto *l) {
     return JUGANDO;
 }
 
-void borrarFantasmaEn(tLaberinto *l, int fil, int col) {
+void borrarFantasma(tLaberinto *l, int fil, int col) {
     //limpiar la celda del tablero si todavía tiene F
     if (l->lab[fil][col] == FANTASMA)
         l->lab[fil][col] = CAMINO;
@@ -157,7 +169,7 @@ int verMovimientosPartida(const char* archi)
 
     char buffer[BUFFSIZE];
     fgets(buffer, BUFFSIZE, fp);
-    printf("\n\nTus movimientos fueron:\n%s", buffer);
+    printf("\nTus movimientos fueron:\n%s", buffer);
     fclose(fp);
     return 0;
 }

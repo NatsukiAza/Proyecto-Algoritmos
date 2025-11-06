@@ -14,8 +14,8 @@
 int terminarJuego(tLaberinto *l);
 void ingresarMovimiento(tCola *colaJugador, tLaberinto *l);
 int iniciarLogMovimientos(const char* archi);
-int handleMovimiento(tLaberinto *l);
-void borrarFantasmaEn(tLaberinto *l, int fil, int col);
+int handleMovimiento(tLaberinto *l, int*);
+void borrarFantasma(tLaberinto *l, int fil, int col);
 int verMovimientosPartida(const char* archi);
 
 #endif // MOVIMIENTO_H_INCLUDED

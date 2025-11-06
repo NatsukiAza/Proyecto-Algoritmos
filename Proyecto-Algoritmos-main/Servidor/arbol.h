@@ -25,7 +25,7 @@ void IRD(const tArbol *arbol, void* param, int nivel, void (*accion)(tArbol arbo
 void RID(const tArbol *arbol, void* param, int nivel, void (*accion)(tArbol arbol, void* param, int nivel));
 void IDR(const tArbol *arbol, void* param, int nivel, void (*accion)(tArbol arbol, void* param, int nivel));
 int contarHojas(tArbol *arbol);
-int vaciarArbol(tArbol* arbol);
+void vaciarArbol(tArbol* arbol);
 int alturaArbol(tArbol* arbol);
 void verNodoDesdeN(tArbol* arbol, int nivelMin);
 void verNodoNivel(tArbol* arbol, int nivelParam);

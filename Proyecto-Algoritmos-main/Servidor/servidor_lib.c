@@ -67,6 +67,7 @@ int cargarRanking(tVector* vec){
         vectorInsertarOrdenado(vec, &jugador, cmpRanking);
         fread(&jugador, sizeof(tRanking), 1, pArchRanking);
     }
+    fclose(pArchRanking);
     return OK;
 }
 

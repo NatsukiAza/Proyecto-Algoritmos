@@ -3,7 +3,7 @@
 int dx[4] = { -2, 2, 0, 0 };
 int dy[4] = { 0, 0, -2, 2 };
 
-void leerDatos(tLaberinto * l)
+void leerDatos(tLaberinto * l) //leo el archivo config
 {
     FILE * arch = fopen("config.txt","r");
     int limSupFantasmas,limInfFantasmas;
@@ -89,21 +89,19 @@ void  inicializarLaberinto(tLaberinto * l)
     }
 }
 
-// prob en 0..100 (porcentaje). Ej: 25 = abre ~25% de paredes internas elegibles.
 void abrirBrechas(char **lab, int filas, int columnas, int prob)
 {
-    // Recorremos solo paredes internas que separan dos celdas CAMINO.
+    //recorremos solo paredes internas que separan dos CAMINO.
     for (int i = 1; i < filas - 1; ++i) {
         for (int j = 1; j < columnas - 1; ++j) {
-            if (lab[i][j] != PARED) continue;
+            if (lab[i][j] != PARED){
+                continue;
+            }
+            //pared vertical entre dos celdas camino (arriba/abajo)
+            int puedeVertical = (i % 2 == 0) && (j % 2 == 1) && lab[i - 1][j] == CAMINO && lab[i + 1][j] == CAMINO;
 
-            // pared vertical entre dos celdas camino (arriba/abajo)
-            int puedeVertical = (i % 2 == 0) && (j % 2 == 1) &&
-                                lab[i - 1][j] == CAMINO && lab[i + 1][j] == CAMINO;
-
-            // pared horizontal entre dos celdas camino (izq/der)
-            int puedeHorizontal = (i % 2 == 1) && (j % 2 == 0) &&
-                                  lab[i][j - 1] == CAMINO && lab[i][j + 1] == CAMINO;
+            //pared horizontal entre dos celdas camino (izq/der)
+            int puedeHorizontal = (i % 2 == 1) && (j % 2 == 0) && lab[i][j - 1] == CAMINO && lab[i][j + 1] == CAMINO;
 
             if ((puedeVertical || puedeHorizontal) && (rand() % 100) < prob) {
                 lab[i][j] = CAMINO;
@@ -158,7 +156,7 @@ void seleccionarAccesos(tLaberinto *l) {
     int filas = l->filas;
     int cols  = l->columnas;
 
-    //pedir tamañp minimo
+    //pedir tamaño minimo
     if (filas < 3 || cols < 3) {
         fprintf(stderr, "Error: el laberinto debe ser al menos 3x3\n");
         exit(1);
@@ -246,11 +244,6 @@ void seleccionarAccesos(tLaberinto *l) {
     l->jugador.col = l->entradaY;
 }
 
-
-//void generarVidas(char ** lab,tFantasma * fantasmas,int n){
-//
-//}
-
 void imprimirLaberinto(char **lab,int col,int fil){
     for(int i=0;i<fil;i++){
         for(int j=0;j<col;j++){
@@ -267,8 +260,8 @@ void generarFantasmas(tLaberinto * l) {
 
     radioSeguridad=MIN(2,radioSeguridad);
 
-    // Inicializa el generador de n�meros aleatorios si no se ha hecho
-    // srand(time(NULL));
+    //inicializa el generador de numeros aleatorios
+    //srand(time(NULL));
 
     while (fantasmasColocados < l->cantFantasmas) {
         int fX = rand() % (l->columnas - 2) + 1;
@@ -409,7 +402,7 @@ int esBorde(int filas, int columnas, int i, int j)
     return 0; //no es borde
 }
 
-int despejarSalida(char **lab, int filas, int columnas, int salidaX, int salidaY)
+int despejarSalida(char **lab, int filas, int columnas, int salidaX, int salidaY) //aseguro la salida accesible
 {
     int i, j;
     for(i = -1; i<2; i++)

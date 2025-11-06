@@ -265,16 +265,16 @@
 	<ctype.h>
 	"cola.h"
 
-1761970804 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\generador.c
+1762386297 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\generador.c
 	"generador.h"
 
-1761969842 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\main.c
+1762384931 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\main.c
 	"generador.h"
 	"movimiento.h"
 	"menu.h"
 	"conexiones.h"
 
-1761966699 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\movimiento.h
+1762385258 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\movimiento.h
 	"generador.h"
 	"cola.h"
 	<conio.h>
@@ -282,6 +282,6 @@
 1761883568 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\menu.c
 	"menu.h"
 
-1761970801 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\movimiento.c
+1762386207 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\movimiento.c
 	"movimiento.h"
 

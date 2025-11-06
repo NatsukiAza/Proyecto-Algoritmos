@@ -3,15 +3,6 @@
 #include "menu.h"
 #include "conexiones.h"
 
-
-
-//int compararRanking(const void* a, const void* b)
-//{
-//    tRanking* x = (tRanking*)a;
-//    tRanking* y = (tRanking*)b;
-//    return x->puntos - y->puntos;
-//}
-
 int main()
 {
 
@@ -36,7 +27,6 @@ int main()
 
 
     // codigo sin server
-
     do
     {
         srand(time(NULL));
@@ -53,31 +43,27 @@ int main()
             iniciarLogMovimientos("movimientos.txt");
 
             inicializarLaberinto(&laberinto);
-            //rellenarBordes(&laberinto);
-
-            seleccionarAccesos(&laberinto); //aca falla a veces
+            seleccionarAccesos(&laberinto);
 
             generarCaminoAleatorio(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.entradaX, laberinto.entradaY, 0, 0);
-//            generarLaberintoMasAbierto(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.entradaX, laberinto.entradaY, 40);
-//            laberinto.lab[laberinto.salidaX][laberinto.salidaY] = SALIDA;
             despejarSalida(laberinto.lab, laberinto.filas, laberinto.columnas, laberinto.salidaX, laberinto.salidaY);
 
             generarFantasmas(&laberinto);
             generarVidasExtra(laberinto.lab, laberinto.maxVidasExtra, laberinto.filas, laberinto.columnas);
             generarPremios(laberinto.lab, laberinto.maximosPremios, laberinto.filas, laberinto.columnas);
             generarJugador(&laberinto);
-            generarArchLaberinto(&laberinto);
+            generarArchLaberinto(&laberinto); //txt de salida
             imprimirLaberinto(laberinto.lab,laberinto.columnas,laberinto.filas);
 
             if(terminarJuego(&laberinto) == PERDIO)
             {
-                printf("PERDISTE MALETA!!!\n");
+                printf("\nPERDISTE!!!\n");
                 actualizarRanking(laberinto.jugador, 0, sock);
                 getch();
             }
             else
             {
-                printf("GANASTE LOCO!!!\n");
+                printf("\nGANASTE!!!\n");
                 actualizarRanking(laberinto.jugador, 1, sock);
                 getch();
             }
