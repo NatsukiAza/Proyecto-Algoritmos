@@ -109,20 +109,21 @@
 	"servidor_lib.h"
 	<stdlib.h>
 
-1762043829 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.c
+1762387009 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.c
 	"arbol.h"
 
-1762044095 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.h
+1762387029 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\arbol.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<math.h>
 
-1761872082 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\main.c
+1762386889 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\main.c
 	<stdio.h>
 	<stdlib.h>
 	"servidor_lib.h"
 	"funcionesCliServ.h"
+	"arbol.h"
 
 1761871842 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\servidor_lib.h
 	<winsock2.h>
@@ -136,14 +137,14 @@
 	<string.h>
 	"arbol.h"
 
-1762044048 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\servidor_lib.c
+1762387070 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\servidor_lib.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
 	"servidor_lib.h"
 	"funcionesCliServ.h"
 
-1761872226 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\tdavectordin.c
+1762387195 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\tdavectordin.c
 	<stdlib.h>
 	"TDAvectorDin.h"
 	"servidor_lib.h"
@@ -155,7 +156,7 @@
 	<string.h>
 	"TDAvectorDin.h"
 
-1762043783 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\funcionescliserv.c
+1762391468 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\servidor\funcionescliserv.c
 	"funcionesCliServ.h"
 	"servidor_lib.h"
 

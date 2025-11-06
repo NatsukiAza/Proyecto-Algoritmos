@@ -81,11 +81,9 @@ int handleMovimiento(tLaberinto *l, int* contCheat) {
         case 'A': movCol = -1; l->jugador.cantMov++; break;
         case 'D': movCol =  1; l->jugador.cantMov++; break;
         case 'N': (*contCheat)++; break;
-        case 'B':
         default:
             printf("INPUT INVALIDO\n");
             vaciarCola(&colaJugador);
-            return JUGANDO;
     }
 
     if(*contCheat == 3){ //en caso de activar el "cheat"
@@ -94,7 +92,7 @@ int handleMovimiento(tLaberinto *l, int* contCheat) {
         l->jugador.col = l->salidaY;
         l->lab[l->jugador.fil][l->jugador.col] = PLAYER;
         vaciarCola(&colaJugador);
-        return JUGANDO;
+        return GANO;;
     }
 
     int nextFil = l->jugador.fil + movFil;
