@@ -282,6 +282,58 @@
 1761883568 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\menu.c
 	"menu.h"
 
-1762392204 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\movimiento.c
+1762392455 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\proyecto-algoritmos-main\cliente\movimiento.c
+	"movimiento.h"
+
+1761866192 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\cola.c
+	"cola.h"
+	<string.h>
+
+1761866192 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\cola.h
+	<stdlib.h>
+
+1761866192 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\conexiones.c
+	"conexiones.h"
+	"menu.h"
+	<stdio.h>
+	<string.h>
+
+1761866192 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\conexiones.h
+	<winsock2.h>
+
+1761866192 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<winsock2.h>
+	"generador.h"
+	"conexiones.h"
+
+1761969347 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\generador.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	<ctype.h>
+	"cola.h"
+
+1762391579 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\generador.c
+	"generador.h"
+
+1762391641 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\main.c
+	"generador.h"
+	"movimiento.h"
+	"menu.h"
+	"conexiones.h"
+
+1762391463 c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\movimiento.h
+	"generador.h"
+	"cola.h"
+	<conio.h>
+
+1761883568 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\menu.c
+	"menu.h"
+
+1762392455 source:c:\users\nehuen\desktop\facultad\progra\ayed\trabajo practico\proyecto-algoritmos\laberinto debugueadores\cliente\movimiento.c
 	"movimiento.h"
 
