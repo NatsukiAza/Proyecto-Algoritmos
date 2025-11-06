@@ -39,14 +39,6 @@ typedef struct{
     int fil;
     int col;
 }tFantasma;
-typedef struct{
-    int fil;
-    int col;
-}tVida;
-typedef struct{
-    int fil;
-    int col;
-}tPremio;
 
 typedef struct{
     char ** lab;
@@ -59,8 +51,6 @@ typedef struct{
     int entradaX,entradaY;
     int salidaX,salidaY;
     tFantasma * fantasmas;
-    tVida * vidas;
-    tPremio * premios;
     tJugador jugador;
 }tLaberinto;
 
@@ -73,7 +63,6 @@ void generarJugador(tLaberinto * laberinto);
 void imprimirLaberinto(char **lab, int col,int fil);
 void generarFantasmas(tLaberinto * l);
 void generarVidas(char ** lab,tFantasma * fantasmas,int n);
-//int moverFantasmas(char ** lab,tFantasma * f,int cantidadFantasmas, int laberintoFilas, int laberintoCols);
 int moverFantasmas(char ** lab, tFantasma * f, int *cantidadFantasmas, int laberintoFilas, int laberintoCols);
 void generarVidasExtra(char** lab, int cantVidas, int f, int c);
 void generarPremios(char** lab, int cantPremios, int f, int c);
